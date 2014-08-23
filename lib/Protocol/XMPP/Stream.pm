@@ -540,6 +540,24 @@ sub deauthorise {
 	)->deauthorise;
 }
 
+sub presence {
+	my ($self, %args) = @_;
+	$self->write_xml([
+		'presence',
+		(exists $args{to}
+		? (to => $args{to})
+		: ()
+		),
+		_content => [
+		#[
+		#	'show', _content => $args{show} || 'available',
+		#],
+		[
+			'status', _content => $args{status}
+		]]
+	]);
+}
+
 sub remote_opened {
 	my $self = shift;
 	$self->{remote_opened} ||= $self->new_future
