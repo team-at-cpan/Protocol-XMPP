@@ -17,7 +17,7 @@ __END__
 
 =head1 AUTHOR
 
-Tom Molesworth <TEAM@cpan.org>
+Tom Molesworth <tom@perlsite.co.uk>
 
 =head1 LICENSE
 
