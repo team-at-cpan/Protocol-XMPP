@@ -4,6 +4,8 @@ use strict;
 use warnings;
 use parent qw(Protocol::XMPP::ElementBase);
 
+## VERSION
+
 =head1 NAME
 
 =head1 SYNOPSIS

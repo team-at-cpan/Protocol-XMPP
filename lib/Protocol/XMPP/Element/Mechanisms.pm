@@ -4,6 +4,8 @@ use strict;
 use warnings;
 use parent qw(Protocol::XMPP::ElementBase);
 
+## VERSION
+
 =head1 NAME
 
 =head1 SYNOPSIS
@@ -15,17 +17,17 @@ use parent qw(Protocol::XMPP::ElementBase);
 =cut
 
 sub add_mechanism {
-	my $self = shift;
-	my $mech = shift;
-	push @{ $self->{mechanism} }, $mech;
-	$self;
+  my $self = shift;
+  my $mech = shift;
+  push @{ $self->{mechanism} }, $mech;
+  $self;
 }
 
 sub end_element {
-	my $self = shift;
-	$self->debug("Supported auth mechanisms: " . join(' ', map { $_->type } @{$self->{mechanism}}));
-	$self->parent->{mechanism} = $self->{mechanism} if $self->parent;
-	$self;
+  my $self = shift;
+  $self->debug("Supported auth mechanisms: " . join(' ', map { $_->type } @{$self->{mechanism}}));
+  $self->parent->{mechanism} = $self->{mechanism} if $self->parent;
+  $self;
 }
 
 1;

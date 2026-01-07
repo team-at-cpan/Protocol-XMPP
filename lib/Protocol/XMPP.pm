@@ -110,7 +110,7 @@ about XML notwithstanding) but more detailed than L<Protocol::XMPP>.
 
 =item * L<Net::XMPP> - another implementation, sadly the XML parser is blocking so although
 it provides the L<Net::XMPP::Protocol> abstraction layer for the XMPP protocol, which probably
-has better feature support than this module, it's not too suitable for dealing with asynchronous / 
+has better feature support than this module, it's not too suitable for dealing with asynchronous /
 event-based implementations. Also, I wasn't too keen on some of the implementation details, such
 as the direct checking for ref and callback handling.
 

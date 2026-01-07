@@ -4,6 +4,8 @@ use strict;
 use warnings;
 use parent qw(Protocol::XMPP::TextElement);
 
+## VERSION
+
 =head1 NAME
 
 =head1 SYNOPSIS
@@ -15,11 +17,11 @@ use parent qw(Protocol::XMPP::TextElement);
 =cut
 
 sub on_text_complete {
-	my $self = shift;
-	my $data = shift;
-	$self->{jid} = $data;
-	$self->stream->jid($data);
-	$self->debug("Full JID was [$data]");
+  my $self = shift;
+  my $data = shift;
+  $self->{jid} = $data;
+  $self->stream->jid($data);
+  $self->debug("Full JID was [$data]");
 }
 
 1;

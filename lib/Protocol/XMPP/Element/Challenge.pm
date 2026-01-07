@@ -4,6 +4,8 @@ use strict;
 use warnings;
 use parent qw(Protocol::XMPP::ElementBase);
 
+## VERSION
+
 =head1 NAME
 
 Protocol::XMPP::Challenge - deal with the XMPP challenge
@@ -28,23 +30,23 @@ value is opaque binary data, and must be Base64 encoded (using L<MIME::Base64>).
 =cut
 
 sub end_element {
-	my $self = shift;
-	$self->debug("Data was: " . $self->{data});
-	my $data = MIME::Base64::decode_base64($self->{data});
+  my $self = shift;
+  $self->debug("Data was: " . $self->{data});
+  my $data = MIME::Base64::decode_base64($self->{data});
 
-	my ($token) = $self->stream->{features}->{sasl_client}->client_step($data);
-	$self->debug("Token was [" . ($token || 'undefined') . "]");
+  my ($token) = $self->stream->{features}->{sasl_client}->client_step($data);
+  $self->debug("Token was [" . ($token || 'undefined') . "]");
 
 # Return either base64 token value, or '=' (which decodes to empty value but we need to be explicit about
 # this for some recipients) if we didn't have one.
-	my $response = MIME::Base64::encode_base64(defined $token ? $token : '', '');
-	$token = '=' unless defined $response && length $response;
+  my $response = MIME::Base64::encode_base64(defined $token ? $token : '', '');
+  $token = '=' unless defined $response && length $response;
 
-	$self->write_xml([
-		'response',
-		_ns => 'xmpp-sasl',
-		_content => $response
-	]);
+  $self->write_xml([
+    'response',
+    _ns => 'xmpp-sasl',
+    _content => $response
+  ]);
 }
 
 1;

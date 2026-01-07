@@ -4,6 +4,8 @@ use strict;
 use warnings;
 use parent qw(Protocol::XMPP::ElementBase);
 
+## VERSION
+
 =head1 NAME
 
 Protocol::XMPP::Bind - register ability to deal with a specific feature
@@ -21,10 +23,10 @@ Protocol::XMPP::Bind - register ability to deal with a specific feature
 =cut
 
 sub end_element {
-	my $self = shift;
-	$self->debug("IQ data");
-	my $id = $self->attributes->{id};
-	$self->stream->iq_complete($id => $self);
+  my $self = shift;
+  $self->debug("IQ data");
+  my $id = $self->attributes->{id};
+  $self->stream->iq_complete($id => $self);
 }
 
 1;

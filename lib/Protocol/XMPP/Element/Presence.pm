@@ -4,6 +4,8 @@ use strict;
 use warnings;
 use parent qw(Protocol::XMPP::ElementBase);
 
+## VERSION
+
 use Protocol::XMPP::Contact;
 
 =head1 NAME
@@ -19,14 +21,14 @@ Protocol::XMPP::Success - indicate success for an operation
 =cut
 
 sub end_element {
-	my $self = shift;
-	$self->debug("Had presence information");
-	my $attr = $self->attributes;
-	my $contact = Protocol::XMPP::Contact->new(
-		stream	=> $self->stream,
-		jid	=> $attr->{from},
-	);
-	$self->dispatch_event('presence', $contact);
+  my $self = shift;
+  $self->debug("Had presence information");
+  my $attr = $self->attributes;
+  my $contact = Protocol::XMPP::Contact->new(
+    stream  => $self->stream,
+    jid => $attr->{from},
+  );
+  $self->dispatch_event('presence', $contact);
 }
 
 1;

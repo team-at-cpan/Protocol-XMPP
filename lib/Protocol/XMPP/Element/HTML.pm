@@ -4,6 +4,8 @@ use strict;
 use warnings;
 use parent qw(Protocol::XMPP::ElementBase);
 
+## VERSION
+
 =head1 NAME
 
 Protocol::XMPP::Feature - register ability to deal with a specific feature
@@ -21,8 +23,8 @@ Protocol::XMPP::Feature - register ability to deal with a specific feature
 =cut
 
 sub end_element {
-	my $self = shift;
-	$self->debug("Ignoring HTML content");
+  my $self = shift;
+  $self->debug("Ignoring HTML content");
 }
 
 1;

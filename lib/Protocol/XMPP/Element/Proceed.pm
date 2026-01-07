@@ -4,6 +4,8 @@ use strict;
 use warnings;
 use parent qw(Protocol::XMPP::ElementBase);
 
+## VERSION
+
 =head1 NAME
 
 =head1 SYNOPSIS
@@ -15,9 +17,9 @@ use parent qw(Protocol::XMPP::ElementBase);
 =cut
 
 sub end_element {
-	my $self = shift;
-	$self->dispatch_event('starttls');
-	$self;
+  my $self = shift;
+  $self->dispatch_event('starttls');
+  $self;
 }
 
 1;

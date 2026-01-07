@@ -4,6 +4,8 @@ use strict;
 use warnings;
 use parent qw(Protocol::XMPP::ElementBase);
 
+## VERSION
+
 =head1 NAME
 
 =head1 SYNOPSIS
@@ -15,14 +17,14 @@ use parent qw(Protocol::XMPP::ElementBase);
 =cut
 
 sub end_element {
-	my $self = shift;
-	$self->debug('TLS available');
-	$self->stream->{features}->{tls} = 1;
-	$self->stream->{tls_pending} = 1;
+  my $self = shift;
+  $self->debug('TLS available');
+  $self->stream->{features}->{tls} = 1;
+  $self->stream->{tls_pending} = 1;
 
 # screw this, let's go straight into TLS mode
-	$self->write_xml(['starttls', _ns => 'xmpp-tls']);
-	$self;
+  $self->write_xml(['starttls', _ns => 'xmpp-tls']);
+  $self;
 }
 
 1;

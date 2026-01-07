@@ -3,6 +3,8 @@ package Protocol::XMPP::User;
 use strict;
 use warnings;
 
+## VERSION
+
 =head1 NAME
 
 Protocol::XMPP::User - user-related functionality
@@ -12,9 +14,9 @@ Protocol::XMPP::User - user-related functionality
 use Protocol::XMPP::Roster;
 
 sub new {
-	my $class = shift;
-	my $self = bless { }, $class;
-	return $self;
+  my $class = shift;
+  my $self = bless { }, $class;
+  return $self;
 }
 
 sub name {
@@ -22,8 +24,8 @@ sub name {
 }
 
 sub roster {
-	my $self = shift;
-	return Protocol::XMPP::Roster->new($self);
+  my $self = shift;
+  return Protocol::XMPP::Roster->new($self);
 }
 
 1;

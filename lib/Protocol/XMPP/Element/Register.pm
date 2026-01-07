@@ -4,6 +4,8 @@ use strict;
 use warnings;
 use parent qw(Protocol::XMPP::ElementBase);
 
+## VERSION
+
 =head1 NAME
 
 =head1 SYNOPSIS
@@ -17,16 +19,16 @@ use parent qw(Protocol::XMPP::ElementBase);
 use Data::Dumper;
 
 sub new {
-	my $class = shift;
-	my $self = $class->SUPER::new(@_);
-	$self->debug($self->{element}->{NamespaceURI});
-	$self;
+  my $class = shift;
+  my $self = $class->SUPER::new(@_);
+  $self->debug($self->{element}->{NamespaceURI});
+  $self;
 }
 
 sub end_element {
-	my $self = shift;
-	$self->debug("Register request received, data was: " . $self->{data});
-	$self;
+  my $self = shift;
+  $self->debug("Register request received, data was: " . $self->{data});
+  $self;
 }
 
 1;

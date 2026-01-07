@@ -4,6 +4,8 @@ use strict;
 use warnings;
 use parent qw{Protocol::XMPP::Base};
 
+## VERSION
+
 =head1 NAME
 
 Protocol::XMPP::ElementBase - base class for L<Protocol::XMPP> XML fragment handling
@@ -17,10 +19,10 @@ Protocol::XMPP::ElementBase - base class for L<Protocol::XMPP> XML fragment hand
 =cut
 
 sub new {
-	my $class = shift;
-	my $self = $class->SUPER::new(@_);
-	$self->{data} = '';
-	return $self;
+  my $class = shift;
+  my $self = $class->SUPER::new(@_);
+  $self->{data} = '';
+  return $self;
 }
 
 =head2 attributes
@@ -30,10 +32,10 @@ Access the XML element attributes as key-value pairs.
 =cut
 
 sub attributes {
-	my $self = shift;
-	return {
-		map { $_->{LocalName} => $_->{Value} } values %{$self->{element}->{Attributes}}
-	};
+  my $self = shift;
+  return {
+    map { $_->{LocalName} => $_->{Value} } values %{$self->{element}->{Attributes}}
+  };
 }
 
 =head2 parent
@@ -51,10 +53,10 @@ Called when new character data is available. Appends to internal buffer.
 =cut
 
 sub characters {
-	my $self = shift;
-	my $data = shift;
-	$self->{data} .= $data;
-	$self;
+  my $self = shift;
+  my $data = shift;
+  $self->{data} .= $data;
+  $self;
 }
 
 =head2 end_element
@@ -64,8 +66,8 @@ Called when an XML element is terminated.
 =cut
 
 sub end_element {
-	my $self = shift;
-	$self->debug("Virtual end_element for $_[0]");
+  my $self = shift;
+  $self->debug("Virtual end_element for $_[0]");
 }
 
 =head2 class_from_element

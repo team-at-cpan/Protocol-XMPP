@@ -3,6 +3,8 @@ package Protocol::XMPP::Roster;
 use strict;
 use warnings;
 
+## VERSION
+
 =head1 NAME
 
 Protocol::XMPP::Roster - handle XMPP protocol stream

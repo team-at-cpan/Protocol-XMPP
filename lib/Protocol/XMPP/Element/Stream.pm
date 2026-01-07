@@ -4,6 +4,8 @@ use strict;
 use warnings;
 use parent qw(Protocol::XMPP::ElementBase);
 
+## VERSION
+
 =head1 NAME
 
 Protocol::XMPP::Element::Stream - handle the stream start/end tags
@@ -17,10 +19,10 @@ Protocol::XMPP::Element::Stream - handle the stream start/end tags
 =cut
 
 sub new {
-	my $class = shift;
-	my $self = $class->SUPER::new(@_);
-	$self->stream->remote_opened->done;
-	$self
+  my $class = shift;
+  my $self = $class->SUPER::new(@_);
+  $self->stream->remote_opened->done;
+  $self
 }
 
 =head2 C<end_element>
@@ -28,8 +30,8 @@ sub new {
 =cut
 
 sub end_element {
-	my $self = shift;
-	$self->stream->remote_closed->done;
+  my $self = shift;
+  $self->stream->remote_closed->done;
 }
 
 1;
