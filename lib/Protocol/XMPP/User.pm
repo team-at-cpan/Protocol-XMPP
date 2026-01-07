@@ -32,9 +32,9 @@ __END__
 
 =head1 AUTHOR
 
-Tom Molesworth <cpan@entitymodel.com>
+Tom Molesworth <TEAM@cpan.org>
 
 =head1 LICENSE
 
-Copyright Tom Molesworth 2010-2014. Licensed under the same terms as Perl itself.
+Copyright Tom Molesworth 2010-2026. Licensed under the same terms as Perl itself.
 
